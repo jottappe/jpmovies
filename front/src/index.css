@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap");
 
 :root {
-  --color-primary: #2f86a6;
+  --color-primary: #414042;
+  --color-secondary: #88a0a8;
+  --color-tertiary: #f6f0e0;
 }
 
 * {

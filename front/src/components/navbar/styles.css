@@ -1,0 +1,22 @@
+header {
+  background: var(--color-secondary);
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 120px;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 12px;
+  color: var(--color-primary);
+}
