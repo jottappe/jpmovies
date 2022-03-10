@@ -1,14 +1,6 @@
 header {
   background: var(--color-secondary);
   height: 80px;
-  display: flex;
-  align-items: center;
-}
-
-.nav-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .logo {

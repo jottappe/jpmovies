@@ -1,13 +1,13 @@
 import { ReactComponent as GitHubIcon } from "assets/images/github.svg";
-import { ReactComponent as LogoJPMoveis } from "assets/images/logo.svg";
+import { ReactComponent as LogoJPMovies } from "assets/images/logo.svg";
 import "./styles.css";
 
 function Navbar() {
   return (
-    <header>
+    <header className="d-flex align-items-center">
       <nav className="container">
         <div className="d-flex align-items-center justify-content-between">
-          <LogoJPMoveis className="logo" />
+          <LogoJPMovies className="logo" />
           <a
             href="https://github.com/jottappe"
             target="_blank"
