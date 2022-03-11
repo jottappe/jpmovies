@@ -1,5 +1,7 @@
+import Pagination from "components/pagination";
+
 function Listing() {
-  return <h1>Listagem dos filmes</h1>;
+  return <Pagination />;
 }
 
 export default Listing;
