@@ -1,0 +1,7 @@
+.stars-container {
+  width: 130px;
+}
+.stars-container svg {
+  width: 20px;
+  height: auto;
+}
