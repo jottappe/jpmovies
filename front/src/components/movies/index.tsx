@@ -1,4 +1,5 @@
 import Score from "components/score";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 function Movies() {
@@ -17,7 +18,9 @@ function Movies() {
       <div className="d-flex flex-column align-items-center p-3">
         <h3>{movie.title}</h3>
         <Score />
-        <div className="btn btn-primary mt-4">Avaliar</div>
+        <Link to={`/form/${movie.id}`}>
+          <div className="btn btn-primary mt-4">Avaliar</div>
+        </Link>
       </div>
     </div>
   );
