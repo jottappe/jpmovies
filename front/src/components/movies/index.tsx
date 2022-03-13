@@ -11,7 +11,7 @@ function Movies({ movie }: Props) {
     <div className="movie-container">
       <img className="w-100 rounded-top" src={movie.image} alt={movie.title} />
       <div className="d-flex flex-column align-items-center p-3">
-        <h3>{movie.title}</h3>
+        <h3 className="text-center">{movie.title}</h3>
         <Score count={movie.count} score={movie.score} />
         <Link to={`/form/${movie.id}`}>
           <div className="btn btn-primary mt-4">Avaliar</div>
