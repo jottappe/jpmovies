@@ -8,21 +8,41 @@ import { BASE_URL } from "utils/requests";
 function Listing() {
   const [pageNumber, setPageNumber] = useState(0);
 
+  const [page, setPage] = useState<MoviePage>({
+    content: [],
+    last: true,
+    totalPages: 0,
+    totalElements: 0,
+    size: 12,
+    number: 2,
+    first: true,
+    numberOfElements: 0,
+    empty: true,
+  });
+
   useEffect(() => {
-    axios.get(`${BASE_URL}/movie?size=12&page=1`).then((res) => {
-      const data = res.data as MoviePage;
-      setPageNumber(data.number);
-    });
-  }, []);
+    axios
+      .get(`${BASE_URL}/movie?size=12&page=${pageNumber}&sort=title`)
+      .then((res) => {
+        const data = res.data as MoviePage;
+        // setPageNumber(data.number);
+        setPage(data);
+      });
+  }, [pageNumber]);
 
   return (
     <>
       <Pagination />
       <div className="container">
         <div className="row">
-          <div className="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3">
-            <Movies />
-          </div>
+          {page.content.map((movie) => (
+            <div
+              key={movie.id}
+              className="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3"
+            >
+              <Movies movie={movie} />
+            </div>
+          ))}
         </div>
       </div>
     </>
