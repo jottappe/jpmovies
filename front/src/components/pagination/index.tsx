@@ -9,7 +9,7 @@ type Props = {
 
 function Pagination({ page, onChange }: Props) {
   return (
-    <div className="d-flex align-items-center justify-content-center py-3">
+    <div className="d-flex align-items-center justify-content-center py-4">
       <div className="page-box d-flex justify-content-between align-items-center">
         <button
           className="page-btn d-flex justify-content-center align-items-center"
