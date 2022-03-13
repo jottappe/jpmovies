@@ -14,7 +14,7 @@ function Form() {
   return (
     <div className="form-container">
       <img className="w-100 rounded-top" src={movie.image} alt={movie.title} />
-      <div className="d-flex flex-column align-items-center p-3">
+      <div className="d-flex flex-column align-items-center p-4">
         <h3 className="fs-3 text-center fw-bold">{movie.title}</h3>
         <form className="w-100">
           <div className="form-group mb-4">
