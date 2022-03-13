@@ -1,8 +1,9 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Movie } from "types/movie";
 import { BASE_URL } from "utils/requests";
+import { validateEmail } from "utils/validate";
 import "./styles.css";
 
 type Props = {
@@ -10,6 +11,8 @@ type Props = {
 };
 
 function FormCard({ movieId }: Props) {
+  const navigate = useNavigate();
+
   const [movie, setMovie] = useState<Movie>();
 
   useEffect(() => {
@@ -17,6 +20,30 @@ function FormCard({ movieId }: Props) {
       setMovie(res.data);
     });
   }, [movieId]);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const email = (event.target as any).email.value;
+    const score = (event.target as any).score.value;
+
+    if (!validateEmail(email)) return;
+
+    const config: AxiosRequestConfig = {
+      baseURL: BASE_URL,
+      method: "PUT",
+      url: "/scores",
+      data: {
+        email: email,
+        movieId: movieId,
+        score: score,
+      },
+    };
+
+    axios(config).then((res) => {
+      navigate("/");
+    });
+  };
 
   return (
     <div className="form-container">
@@ -27,7 +54,7 @@ function FormCard({ movieId }: Props) {
       />
       <div className="d-flex flex-column align-items-center p-4">
         <h3 className="fs-3 text-center fw-bold">{movie?.title}</h3>
-        <form className="w-100">
+        <form className="w-100" onSubmit={handleSubmit}>
           <div className="form-group mb-4">
             <label htmlFor="email">Informe seu email</label>
             <input type="email" className="form-control" id="email" />
@@ -43,11 +70,9 @@ function FormCard({ movieId }: Props) {
             </select>
           </div>
           <div className="d-flex justify-content-center gap-3">
-            <Link to="/">
-              <button type="submit" className="btn btn-primary">
-                Salvar
-              </button>
-            </Link>
+            <button type="submit" className="btn btn-primary">
+              Salvar
+            </button>
             <Link to="/">
               <button className="btn btn-light">Cancelar</button>
             </Link>

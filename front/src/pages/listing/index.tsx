@@ -25,7 +25,6 @@ function Listing() {
       .get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=id`)
       .then((res) => {
         const data = res.data as MoviePage;
-        // setPageNumber(data.number);
         setPage(data);
       });
   }, [pageNumber]);

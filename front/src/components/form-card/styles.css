@@ -27,6 +27,12 @@ h3 {
   width: 130px;
 }
 
+.btn:focus,
+.btn:focus-visible,
+.btn:focus-within {
+  box-shadow: none;
+}
+
 .btn-primary {
   background-color: var(--color-secondary);
   border-color: var(--color-secondary);
